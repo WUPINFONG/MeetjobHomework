@@ -1,0 +1,155 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title></title>
+<style>
+#menu{
+        width: 100%;
+        height: 100px;
+        background-color: #555;
+       }
+ #menulist{
+        position:absolute;  /*定位 ： fixed 固定 absolute 依父位置做絕對位置*/
+        height:70px;
+       }
+
+       #menulist , #menulist ul{
+        list-style: none;
+        padding:0;
+        margin:0;
+       }
+
+       #menulist li{
+             border-right: 1px solid #ffffff;
+             float:left;
+             background-color: #555;
+       }
+
+       #menulist a {
+        color:#ffffff;
+        display:block;
+        text-decoration: none;
+        width:80px;
+       }
+
+       #menulist li ul{
+        position: absolute;  /* 位置是絕對位置 */
+        left:auto;  /*對於絕對位置元素，會依內容需要的寬度來設置*/
+        width:80px;
+       }
+
+       .active{
+        background-color: #ff0000;
+       }
+       #msg{
+            width: 100%;
+            height:500px;
+       }
+       #msg img{
+            width:100%;
+            height:100%;
+       }
+
+
+    </style>	
+</head>
+<body>
+<div id="menu">
+
+
+		<ul id="menulist">
+
+
+			<li><a href="#">程式設計</a>
+                <ul class="submenu">
+                	<li><a href="#">C/C++程式設計</a></li>
+                	<li><a href="#">c#程式設計</a></li>
+                	<li><a href="#">Java程式設計</a></li>
+                </ul>
+			</li>	
+			<li><a href="#">平面設計</a>
+			<ul class="submenu">
+                	<li><a href="#">UI使用者介面設計</a></li>
+                	<li><a href="#">Photoshop商業廣告設計</a></li>
+                	<li><a href="#">視覺行銷實作</a></li>
+                </ul>
+             </li>   
+			<li><a href="#">工業設計</a>
+			<ul class="submenu">
+                	<li><a href="#">機械工程圖學應用</a></li>
+                	<li><a href="#">AutoCAD工業製圖設計</a></li>
+                	<li><a href="#">PTC creo產品設計</a></li>
+                </ul>
+             </li>
+
+			<li><a href="#">服務</a>
+                <ul class="submenu">
+                	<li><a href="#">Line</a></li>
+                	<li><a href="#">來電客服</a></li>
+                	<li><a href="#">據點位置</a></li>
+                </ul>
+			</li>
+
+			
+			<li><a href="#">連絡我們</a></li>
+		</ul>
+	</div>
+
+		
+		<button id="bun2">圖片</button>
+		<div id='msg'>
+		<img src="https://images.pexels.com/photos/2942325/pexels-photo-2942325.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+		</div>	
+	<div id="body1">
+		<h2>標題</h2>
+	</div>
+	<ul class="item" >
+			<li><a href="#">AI</a></li>
+			<li><a href="#">Photoshop</a></li>
+			<li><a href="#">Unity</a></li>
+
+<div id="foot">
+	<form onsubmit="showAge()">
+年齡:<input type="text" id="age" name="age" />
+
+	<button id="bun1">確認送出</button>
+</div>
+	<script>
+		 
+       $(document).ready(function(){
+		$("#bun2").click(function(){
+			$("#msg").slideToggle();
+		})
+	});
+
+  
+
+$(document).ready(function(){
+            $("#menulist li ul").hide();
+            $("#menulist li").hover(
+                function(){
+                    $(this).find("ul").slideDown("fast");
+                    $(this).find("a:first").addClass("active");
+                },function(){
+                $(this).find(".submenu").fadeOut("fast");
+                $(this).find("a").removeClass("active");
+                }
+                )
+    });
+function showAge(){
+       		var age = document.getElementById("age").value;
+       		if (age >= 15&& age <= 50 ){
+       			alert("符合");
+       		}else{
+       			alert("不符合");
+       			
+			}
+       }
+     
+  
+
+	</script>
+</body>
+</html>
